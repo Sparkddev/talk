@@ -7,6 +7,7 @@ import logo from './logo.png';
 import { useState } from 'react';
 import axios from 'axios';
 
+import { useEffect } from 'react';
 function Home(){
 
     const[email, setUserName] = useState("");
@@ -16,6 +17,25 @@ function Home(){
 
     const[showError, setShowError] = useState(false);
 
+
+    
+
+    useEffect(() => {
+        // Code to run when the component mounts or when dependencies change
+      showCookies();
+
+      }, [])
+
+
+      function showCookies(){
+        const cookiesArray = document.cookie.split('; ');
+
+        cookiesArray.forEach(cookie => {
+          const [name, value, domain] = cookie.split('=');
+          
+          console.log(`Cookies name is : ${name} , Cookies Value is  ${value}`);
+        });
+    }
 
 async function handleSubmit(e){
     e.preventDefault();
