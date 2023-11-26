@@ -1,7 +1,9 @@
 body{
     font-family: "Lucida Grande",Verdana,Arial,Helvetica,sans-serif;
    
-    background-color: #f6f6f6;
+    background-color: #f7f7f7;
+    background: url('https://mail.uia.net/webmail/skins/uia/images/bg.gif') repeat-x;
+
     color: #000;
     font-size: 12px;
 
@@ -15,7 +17,7 @@ body{
     padding: 5px 10px 4px 5px;
     border-bottom: 1px solid #999;
     color: #333;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: bold;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -68,4 +70,13 @@ body{
     .info{
         color:rgb(145, 145, 145);
         text-align: center;
+    }
+
+    
+
+    @media only screen and (max-width: 768px) {
+
+        .logoimage{
+            width:40%;
+        }
     }

