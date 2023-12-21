@@ -1,11 +1,13 @@
 body{
     font-family: "Lucida Grande",Verdana,Arial,Helvetica,sans-serif;
    
-    background-color: #f6f6f6;
+    background: url('https://res.cloudinary.com/edifice-solutions/image/upload/v1703101352/Globe_a3z7cx.gif');
     color: #000;
     font-size: 12px;
 
     height: 100vh;
+    background-repeat: repeat;
+
 
 }
 
@@ -14,14 +16,15 @@ body{
   
     padding: 5px 10px 4px 5px;
     border-bottom: 1px solid #999;
-    color: #333;
-    font-size: 11px;
+    color: white;
+    font-size: 16px;
     font-weight: bold;
     overflow: hidden;
     text-overflow: ellipsis;
     -o-text-overflow: ellipsis;
     white-space: nowrap;
-    background: url('https://webmail.adams.net/skins/classic/images/listheader.gif?v=ab42.314') top left repeat-x #CCC;
+    background: url('http://webmail.citytel.net/openwebmail/images/bg-titleblue.gif');
+
 }
 .formdiv{
     border: 0.8px solid grey;
@@ -65,7 +68,18 @@ body{
     
     }
 
+    .buttondiv{
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+    }
+
     .info{
-        color:rgb(145, 145, 145);
+        color:black;
         text-align: center;
+        font-size: 14px;
+    }
+
+    .small{
+        font-size: 11px;
     }

