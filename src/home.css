@@ -1,12 +1,57 @@
 body{
     font-family: "Lucida Grande",Verdana,Arial,Helvetica,sans-serif;
    
-    background-color: #f6f6f6;
+    background-color: white;
     color: #000;
     font-size: 12px;
 
     height: 100vh;
 
+}
+
+.mynav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.warning{
+    height: 70px;
+   background-color: #F4CDA1;
+   border:1.5px solid red;
+   color:red;
+}
+
+.warningtext{
+    font-size: 15px;
+}
+
+.checktext{
+    font-size:14px;
+}
+
+hr{
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-top-color: rgb(135, 206, 250);
+    border-right-color: rgb(135, 206, 250);
+    border-bottom-color: rgb(135, 206, 250);
+    border-left-color: rgb(135, 206, 250);
+    background-color: rgb(135, 206, 250);
+    height: 3px;
+}
+
+.help{
+    width:20px;
+}
+
+.helptext{
+    font-size: 14px;
+    font-weight: 500;
+    color:#0000EE;
 }
 
 .cardhead{
@@ -39,7 +84,8 @@ body{
 	text-align: right;
 	float: left;
 	color: #000;
-   	font-weight:bold;
+   	font-weight:500;
+    font-size: 16px;
 	}
 
 .element{
@@ -54,11 +100,12 @@ body{
     }
 
     .mybutton{
-        height: 20px;
+        height: 30px;
         color: #333;
-        font-size: 12px;
+        font-size: 14px;
         padding-left: 8px;
         padding-right: 8px;
+      
         background: url('https://webmail.adams.net/skins/classic/images/listheader.gif?v=ab42.314') repeat-x #f0f0f0;
         border: 1px solid #a4a4a4;
         font-weight: bold;
