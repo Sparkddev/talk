@@ -1,13 +1,26 @@
 body{
     font-family: "Lucida Grande",Verdana,Arial,Helvetica,sans-serif;
    
-    background-color: #f6f6f6;
+    background-color: white;
     color: #000;
     font-size: 12px;
 
     height: 100vh;
 
 }
+
+.mainheading{
+    font-size: 35px;
+    font-weight: 500;
+    color: rgb(107, 107, 107);
+}
+
+.mainheading span{
+    font-size: 35px;
+    font-weight: 700;
+    color: rgb(61, 61, 61);
+}
+
 
 .cardhead{
 
@@ -54,18 +67,30 @@ body{
     }
 
     .mybutton{
-        height: 20px;
-        color: #333;
+        
+       
         font-size: 12px;
-        padding-left: 8px;
-        padding-right: 8px;
-        background: url('https://webmail.adams.net/skins/classic/images/listheader.gif?v=ab42.314') repeat-x #f0f0f0;
-        border: 1px solid #a4a4a4;
+        padding: 5px;
+
+    
         font-weight: bold;
+        width: 100%;
+
+        border: none;
+        border-color: #1e75d9;
+    color: #fff;
+    background: #4a9bea;
+    background: linear-gradient(180deg, #4a9bea 0, #1e75d9);
     
     }
 
     .info{
         color:rgb(145, 145, 145);
         text-align: center;
+    }
+
+    .forgot{
+        color:#1e75d9;
+        text-decoration: none;
+        font-weight: bold;
     }

