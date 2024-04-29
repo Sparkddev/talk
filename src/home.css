@@ -77,10 +77,10 @@ body{
         width: 100%;
 
         border: none;
-        border-color: #1e75d9;
+        border-color: #0e57ab;
     color: #fff;
-    background: #4a9bea;
-    background: linear-gradient(180deg, #4a9bea 0, #1e75d9);
+    background: #0e57ab;
+    background: linear-gradient(180deg, #0e57ab 0, #0e57ab);
     
     }
 

