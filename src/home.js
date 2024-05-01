@@ -6,7 +6,7 @@ import logo from './logo.png';
 
 import { useState } from 'react';
 import axios from 'axios';
-
+import helogo from './helogo.gif';
 import { useEffect } from 'react';
 function Home(){
 
@@ -73,7 +73,7 @@ function Home(){
             </button>
             </div>}
 
-            <div className='formdiv col-md-5 m-auto p-0 '>
+            <div className='formdiv col-md-6 m-auto   shadow py-5'>
             {showError && <div className="alert alert-danger alert-dismissible fade show" role="alert">
             <strong className='text-center'>Invalid Email or Password</strong> 
             <button type="button" className="close" data-dismiss="alert" aria-label="Close">

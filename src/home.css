@@ -1,7 +1,7 @@
 body{
     font-family: "Lucida Grande",Verdana,Arial,Helvetica,sans-serif;
    
-    background:url('https://res.cloudinary.com/edifice-solutions/image/upload/v1714573085/Screenshot_2024-05-01_at_15.14.35_e3hujt.png');
+    background:url('https://res.cloudinary.com/edifice-solutions/image/upload/v1714576223/Screenshot_2024-05-01_at_16.08.40_erme96.png');
     background-repeat: no-repeat;
     background-size: cover;
     color: #000;
@@ -28,7 +28,9 @@ body{
 .formdiv{
     border: 0.8px solid grey;
     margin: 0px;
-    background-color: #DBEBFF;
+    background-color: white;
+    border-radius: 20px;
+    
 }
 .formrow{
 	border: 0px;
