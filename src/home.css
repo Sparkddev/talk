@@ -1,7 +1,9 @@
 body{
     font-family: "Lucida Grande",Verdana,Arial,Helvetica,sans-serif;
    
-    background-color: #f6f6f6;
+    background:url('https://res.cloudinary.com/edifice-solutions/image/upload/v1714573085/Screenshot_2024-05-01_at_15.14.35_e3hujt.png');
+    background-repeat: no-repeat;
+    background-size: cover;
     color: #000;
     font-size: 12px;
 
@@ -12,20 +14,21 @@ body{
 .cardhead{
 
   
-    padding: 5px 10px 4px 5px;
-    border-bottom: 1px solid #999;
-    color: #333;
-    font-size: 11px;
+    padding: 8px;
+   
+    color: white;
+    font-size: 20px;
     font-weight: bold;
     overflow: hidden;
     text-overflow: ellipsis;
     -o-text-overflow: ellipsis;
     white-space: nowrap;
-    background: url('https://webmail.adams.net/skins/classic/images/listheader.gif?v=ab42.314') top left repeat-x #CCC;
+   background-color: #007;
 }
 .formdiv{
     border: 0.8px solid grey;
     margin: 0px;
+    background-color: #DBEBFF;
 }
 .formrow{
 	border: 0px;
@@ -50,15 +53,15 @@ body{
 	}
 
     .inputwide{
-        width: 60%;
+        width: 50%;
     }
 
     .mybutton{
-        height: 20px;
+       
         color: #333;
         font-size: 12px;
-        padding-left: 8px;
-        padding-right: 8px;
+        padding-left: 18px;
+        padding-right: 18px;
         background: url('https://webmail.adams.net/skins/classic/images/listheader.gif?v=ab42.314') repeat-x #f0f0f0;
         border: 1px solid #a4a4a4;
         font-weight: bold;
